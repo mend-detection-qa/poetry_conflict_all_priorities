@@ -86,17 +86,13 @@
                     "operator": "eq",
                     "value": "Trying version getter: PythonVersionFile"
                 },
-                {
+                 {
                     "operator": "regex",
-                    "value": "Found Python version \\(3\\.8\\.0\\) for Poetry project at \"/.*poetry_conflict_all_priorities.*\""
-                },
+                    "value": "Found Python version \\([0-9]+\\.[0-9]+\\.[0-9]+\\) for (Pip|Poetry) project at .*<repo_name>"
+                  },
                 {
                     "operator": "eq",
                     "value": "python version set to: 3.8.0"
-                },
-              {
-                    "operator": "eq",
-                    "value": "Command: \"install-tool python 3.8.0\""
                 },
               {
                     "operator": "eq",
@@ -105,6 +101,18 @@
               {
                     "operator": "eq",
                     "value": "Install tool poetry succeeded"
+                },
+                 {
+                  "operator": "regex",
+                  "value": "Command: \\\\\"install-tool python 3\\.8\\.10\\\\\""
+                },
+                {
+                  "operator": "regex",
+                  "value": "Installing tool python@3\\.8\\.10"
+                },
+                {
+                  "operator": "regex",
+                  "value": "Install tool python succeeded"
                 }
             ],
             "_comment_expected_log_lines": "Optional. List of log lines to validate. Each entry should have an 'operator' (eq or regex) and 'value' (string or regex pattern). Example: [{'operator': 'eq', 'value': 'Python version: 3.11'}, {'operator': 'regex', 'value': 'Python version: \\d+\\.\\d+'}]. If not provided, only log attachment will be performed."
